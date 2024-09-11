@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MyService } from './my.service'; // (4) Importieren des MyService
-import { TOKEN_VALUE } from './custom.service'; // (11) Injection des DI-Tokens
+import { DataService, TOKEN_VALUE } from './data.service';
 
 @Component({
   selector: 'app-04-dependency-injection',
@@ -8,23 +7,22 @@ import { TOKEN_VALUE } from './custom.service'; // (11) Injection des DI-Tokens
   imports: [],
   templateUrl: './dependency-injection.component.html',
   styleUrl: './dependency-injection.component.css',
-  // (6) Provider für MyService und TOKEN_VALUE bereitstellen
+  // (7) Provider in der Komponente selbst definieren
   providers: [
-    MyService, // MyService als Provider
-    { provide: TOKEN_VALUE, useValue: 'Dies ist der Token-Wert!' }, // Token-Provider
+    DataService, // Service-Provider
+    { provide: TOKEN_VALUE, useValue: 'Statischer Token-Wert' }, // Token-Provider
   ],
 })
 export class DependencyInjectionComponent {
-  message: string;
-  tokenMessage: string;
+  data: string;
+  token: string;
 
-  // (3) Angular setzt auf das Entwurfsmuster Dependency Injection, um Abhängigkeiten anzufordern.
-  // (4) Abhängigkeiten werden über den Konstruktor injiziert, und Angular kümmert sich darum, diese bereitzustellen.
+  // (3) Angular setzt auf Dependency Injection.
   constructor(
-    private myService: MyService,
+    private dataService: DataService,
     @Inject(TOKEN_VALUE) tokenValue: string,
   ) {
-    this.message = this.myService.getMessage(); // (1) Geschäftslogik wird in Services ausgelagert, um die Komplexität zu reduzieren.
-    this.tokenMessage = `Injected Token Value: ${tokenValue}`; // (11) Das InjectionToken wird injiziert und genutzt.
+    this.data = this.dataService.getData();
+    this.token = tokenValue;
   }
 }
