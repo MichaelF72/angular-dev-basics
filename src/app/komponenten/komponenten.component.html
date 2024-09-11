@@ -1,0 +1,16 @@
+<h2>Komponenten</h2>
+<p>{{ message }}</p>  <!-- (5) Mit der Interpolation wird die Property message angezeigt -->
+
+<!-- (6) Mit ngIf wird das Verhalten von Elementen im Template gesteuert -->
+<p *ngIf="showMessage">Dieser Satz wird angezeigt weil showMessage gleich true ist.</p>
+
+<!-- (6) ngFor zur Iteration über ein Array -->
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<!-- (8) <ng-container> zum Gruppieren ohne echtes DOM-Element -->
+<ng-container *ngIf="items.length > 0">
+  <p>Die Liste enthält {{ items.length }} strings.</p>
+</ng-container>
+
