@@ -12,8 +12,8 @@ import {NgForOf, NgIf} from "@angular/common";
   styleUrl: './komponenten.component.css'
 })
 
-// (1) Eine Komponente beschreibt einen Teil der Oberfläche. Sie besteht immer aus einer TypeScript-Klasse und einem Template.“
-// Kommentar: In my.component.ts ist die MyComponent als TypeScript-Klasse definiert, und das Template wird innerhalb des @Component-Dekorators mit HTML definiert.
+// (1) Eine Komponente beschreibt einen Teil der Oberfläche. Sie besteht immer aus einer TypeScript-Klasse und einem Template.
+// Kommentar: In komponenten.component.ts ist die KomponentenComponent als TypeScript-Klasse definiert und das Template wird innerhalb des @Component-Dekorators mit HTML definiert.
 
 export class KomponentenComponent {
   message: string = "Hallo Komponenten-Klasse!";
