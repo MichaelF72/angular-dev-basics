@@ -8,6 +8,11 @@ import { TOKEN_VALUE } from './custom.service'; // (11) Injection des DI-Tokens
   imports: [],
   templateUrl: './dependency-injection.component.html',
   styleUrl: './dependency-injection.component.css',
+  // (6) Provider für MyService und TOKEN_VALUE bereitstellen
+  providers: [
+    MyService, // MyService als Provider
+    { provide: TOKEN_VALUE, useValue: 'Dies ist der Token-Wert!' }, // Token-Provider
+  ],
 })
 export class DependencyInjectionComponent {
   message: string;
