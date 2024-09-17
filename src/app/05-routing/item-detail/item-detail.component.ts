@@ -15,10 +15,5 @@ export class ItemDetailComponent {
   constructor(private route: ActivatedRoute) {
     // (11) Der Snapshot der Route enthält die Parameter, synchron abgerufen.
     this.itemId = this.route.snapshot.paramMap.get('id') ?? '';
-
-    // (12) Nutzung von paramMap als Observable für Parameteränderungen.
-    this.route.paramMap.subscribe(params => {
-      this.itemId = params.get('id') ?? '';
-    });
   }
 }
