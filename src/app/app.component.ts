@@ -4,7 +4,8 @@ import { InterpolationComponent } from './01-interpolation/interpolation.compone
 import { PropertyBindingComponent } from './02-property-binding/property-binding.component';
 import { EventBindingComponent } from './03-event-binding/event-binding.component';
 import { DependencyInjectionComponent } from './04-dependency-injection/dependency-injection.component';
-import { RoutingComponent } from './05-routing/routing.component'; // Import der neuen Komponente
+import { RoutingComponent } from './05-routing/routing.component';
+import { HttpComponent } from './06-http/http.component'; // Import der neuen Komponente
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { RoutingComponent } from './05-routing/routing.component'; // Import der
     EventBindingComponent,
     DependencyInjectionComponent,
     RoutingComponent,
+    HttpComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
