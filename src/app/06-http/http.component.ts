@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from './http.service';
 import { NgForOf } from '@angular/common';
 
+export interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 @Component({
   selector: 'app-06-http',
   standalone: true,
@@ -10,7 +17,7 @@ import { NgForOf } from '@angular/common';
   styleUrl: './http.component.css',
 })
 export class HttpComponent implements OnInit {
-  posts: never[] = [];
+  posts: Post[] = [];
 
   constructor(private httpService: HttpService) {} // (3) Der Service wird über Dependency Injection verwendet.
 
