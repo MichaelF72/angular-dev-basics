@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './http.service';
-import { NgForOf } from '@angular/common';
+import { NgForOf, SlicePipe } from '@angular/common';
 
 export interface Post {
   userId: number;
@@ -12,9 +12,9 @@ export interface Post {
 @Component({
   selector: 'app-06-http',
   standalone: true,
-  imports: [NgForOf],
+  imports: [NgForOf, SlicePipe],
   templateUrl: './http.component.html',
-  styleUrl: './http.component.css',
+  styleUrls: ['./http.component.css'],
 })
 export class HttpComponent implements OnInit {
   posts: Post[] = [];
