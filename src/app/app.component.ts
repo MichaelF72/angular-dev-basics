@@ -5,7 +5,8 @@ import { PropertyBindingComponent } from './02-property-binding/property-binding
 import { EventBindingComponent } from './03-event-binding/event-binding.component';
 import { DependencyInjectionComponent } from './04-dependency-injection/dependency-injection.component';
 import { RoutingComponent } from './05-routing/routing.component';
-import { HttpComponent } from './06-http/http.component'; // Import der neuen Komponente
+import { HttpComponent } from './06-http/http.component';
+import { RxjsExampleComponent } from './07-rxjs/rxjs.component'; // Import der neuen Komponente
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { HttpComponent } from './06-http/http.component'; // Import der neuen Ko
     DependencyInjectionComponent,
     RoutingComponent,
     HttpComponent,
+    RxjsExampleComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
