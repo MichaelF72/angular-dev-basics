@@ -6,7 +6,8 @@ import { EventBindingComponent } from './03-event-binding/event-binding.componen
 import { DependencyInjectionComponent } from './04-dependency-injection/dependency-injection.component';
 import { RoutingComponent } from './05-routing/routing.component';
 import { HttpComponent } from './06-http/http.component';
-import { RxjsExampleComponent } from './07-rxjs/rxjs.component'; // Import der neuen Komponente
+import { RxjsExampleComponent } from './07-rxjs/rxjs.component';
+import { InterceptorsComponent } from './08-interceptors/interceptors.component'; // Import der neuen Komponente
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { RxjsExampleComponent } from './07-rxjs/rxjs.component'; // Import der n
     RoutingComponent,
     HttpComponent,
     RxjsExampleComponent,
+    InterceptorsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
