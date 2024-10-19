@@ -1,1 +1,52 @@
-<p>template-driven-forms works!</p>
+<h2>Template-Driven Forms Example</h2>
+<form #myForm="ngForm" (ngSubmit)="submitForm()"> <!-- (4) Abonnieren von ngSubmit -->
+  <label for="name">Name:</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    required
+    minlength="3"
+    [(ngModel)]="user.name"
+    #name="ngModel" /> <!-- (3) Two-Way Binding mit [(ngModel)] -->
+
+  <!-- (6) Überwachung von CSS-Klassen wie ng-dirty, ng-invalid -->
+  <div *ngIf="name.invalid && name.touched">
+    <small *ngIf="name.errors?.required">Name is required.</small>
+    <small *ngIf="name.errors?.minlength">Name must be at least 3 characters long.</small>
+  </div>
+
+  <label for="email">Email:</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    required
+    [(ngModel)]="user.email"
+    #email="ngModel" />
+
+  <div *ngIf="email.invalid && email.touched">
+    <small *ngIf="email.errors?.required">Email is required.</small>
+    <small *ngIf="email.errors?.email">Invalid email format.</small>
+  </div>
+
+  <label for="age">Age:</label>
+  <input
+    type="number"
+    id="age"
+    name="age"
+    min="18"
+    max="99"
+    [(ngModel)]="user.age"
+    #age="ngModel" />
+
+  <div *ngIf="age.invalid && age.touched">
+    <small *ngIf="age.errors?.min">Age must be at least 18.</small>
+    <small *ngIf="age.errors?.max">Age must be less than 100.</small>
+  </div>
+
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  <button type="button" (click)="resetForm()">Reset</button>
+</form>
+
+<p>Form status: {{ form?.status }}</p> <!-- (7) Anzeigen des Formularstatus -->

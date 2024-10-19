@@ -15,7 +15,7 @@ import { Kapitel12PipesComponent } from './kapitel-12-pipes/kapitel12-pipes.comp
 import { Kapitel13DirektivenComponent } from './kapitel-13-direktiven/kapitel13-direktiven.component';
 import { Kapitel14LazyLoadingComponent } from './kapitel-14-lazy-loading/kapitel14-lazy-loading.component';
 import { Kapitel15GuardsComponent } from './kapitel-15-guards/kapitel15-guards.component';
-import { Kapitel16StandaloneComponentsComponent } from './kapitel-16-standalone-components/kapitel16-standalone-components.component'; // Import der neuen Komponente
+import { Kapitel16StandaloneComponentsComponent } from './kapitel-16-standalone-components/kapitel16-standalone-components.component';
 
 @Component({
   selector: 'app-root',
