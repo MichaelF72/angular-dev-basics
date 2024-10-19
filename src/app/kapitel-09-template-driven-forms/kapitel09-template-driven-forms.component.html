@@ -1,5 +1,5 @@
 <h2>Template-Driven Forms Example</h2>
-<form #myForm="ngForm" (ngSubmit)="submitForm()"> <!-- (4) Abonnieren von ngSubmit -->
+<form #myForm="ngForm" (ngSubmit)="submitForm()">
   <label for="name">Name:</label>
   <input
     type="text"
@@ -8,12 +8,11 @@
     required
     minlength="3"
     [(ngModel)]="user.name"
-    #name="ngModel" /> <!-- (3) Two-Way Binding mit [(ngModel)] -->
+    #name="ngModel" />
 
-  <!-- (6) Überwachung von CSS-Klassen wie ng-dirty, ng-invalid -->
   <div *ngIf="name.invalid && name.touched">
-    <small *ngIf="name.errors?.required">Name is required.</small>
-    <small *ngIf="name.errors?.minlength">Name must be at least 3 characters long.</small>
+    <small *ngIf="name.errors?.['required']">Name is required.</small> <!-- Index Access -->
+    <small *ngIf="name.errors?.['minlength']">Name must be at least 3 characters long.</small> <!-- Index Access -->
   </div>
 
   <label for="email">Email:</label>
@@ -26,8 +25,8 @@
     #email="ngModel" />
 
   <div *ngIf="email.invalid && email.touched">
-    <small *ngIf="email.errors?.required">Email is required.</small>
-    <small *ngIf="email.errors?.email">Invalid email format.</small>
+    <small *ngIf="email.errors?.['required']">Email is required.</small> <!-- Index Access -->
+    <small *ngIf="email.errors?.['email']">Invalid email format.</small> <!-- Index Access -->
   </div>
 
   <label for="age">Age:</label>
@@ -41,12 +40,12 @@
     #age="ngModel" />
 
   <div *ngIf="age.invalid && age.touched">
-    <small *ngIf="age.errors?.min">Age must be at least 18.</small>
-    <small *ngIf="age.errors?.max">Age must be less than 100.</small>
+    <small *ngIf="age.errors?.['min']">Age must be at least 18.</small> <!-- Index Access -->
+    <small *ngIf="age.errors?.['max']">Age must be less than 100.</small> <!-- Index Access -->
   </div>
 
   <button type="submit" [disabled]="myForm.invalid">Submit</button>
   <button type="button" (click)="resetForm()">Reset</button>
 </form>
 
-<p>Form status: {{ form?.status }}</p> <!-- (7) Anzeigen des Formularstatus -->
+<p>Form status: {{ form.status }}</p> <!-- Ersetze form?.status mit form.status -->
