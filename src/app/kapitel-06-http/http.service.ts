@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Post } from './kapitel06-http.component';
+import { Post } from './kapitel-06-http.component';
 
 // (1) Der integrierte HttpClient abstrahiert und vereinfacht den Zugriff auf externe Serverschnittstellen.
 @Injectable({
