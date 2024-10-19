@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-kapitel-10-reactive-forms',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './kapitel-10-reactive-forms.component.html',
   styleUrls: ['./kapitel-10-reactive-forms.component.css'],
 })
@@ -42,5 +43,9 @@ export class Kapitel10ReactiveFormsComponent implements OnInit {
   // Formular zurücksetzen
   resetForm(): void {
     this.myForm.reset();
+  }
+
+  getFormStatus(): string {
+    return this.myForm.status; // Zugriff über eine Methode innerhalb der Komponente
   }
 }
