@@ -1,1 +1,39 @@
-<p>reactive-forms works!</p>
+<h2>Reactive Forms Example</h2>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <!-- Name Field -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name" />
+
+  <!-- Name Validation -->
+  <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+    <small *ngIf="myForm.get('name')?.errors?.['required']">Name is required.</small>
+    <small *ngIf="myForm.get('name')?.errors?.['minlength']">Name must be at least 3 characters long.</small>
+  </div>
+
+  <!-- Email Field -->
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email" />
+
+  <!-- Email Validation -->
+  <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+    <small *ngIf="myForm.get('email')?.errors?.['required']">Email is required.</small>
+    <small *ngIf="myForm.get('email')?.errors?.['email']">Invalid email format.</small>
+  </div>
+
+  <!-- Age Field -->
+  <label for="age">Age:</label>
+  <input type="number" id="age" formControlName="age" />
+
+  <!-- Age Validation -->
+  <div *ngIf="myForm.get('age')?.invalid && myForm.get('age')?.touched">
+    <small *ngIf="myForm.get('age')?.errors?.['min']">Age must be at least 18.</small>
+    <small *ngIf="myForm.get('age')?.errors?.['max']">Age must be less than 100.</small>
+  </div>
+
+  <!-- Submit and Reset Buttons -->
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  <button type="button" (click)="resetForm()">Reset</button>
+</form>
+
+<!-- Form Status -->
+<p>Form Status: {{ myForm?.status }}</p>
