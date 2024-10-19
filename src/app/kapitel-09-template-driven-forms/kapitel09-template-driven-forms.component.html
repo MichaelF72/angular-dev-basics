@@ -1,5 +1,6 @@
 <h2>Template-Driven Forms Example</h2>
 <form #myForm="ngForm" (ngSubmit)="submitForm()">
+  <!-- Name Field -->
   <label for="name">Name:</label>
   <input
     type="text"
@@ -10,11 +11,13 @@
     [(ngModel)]="user.name"
     #name="ngModel" />
 
+  <!-- Name Validation -->
   <div *ngIf="name.invalid && name.touched">
-    <small *ngIf="name.errors?.['required']">Name is required.</small> <!-- Index Access -->
-    <small *ngIf="name.errors?.['minlength']">Name must be at least 3 characters long.</small> <!-- Index Access -->
+    <small *ngIf="name.errors?.['required']">Name is required.</small>
+    <small *ngIf="name.errors?.['minlength']">Name must be at least 3 characters long.</small>
   </div>
 
+  <!-- Email Field -->
   <label for="email">Email:</label>
   <input
     type="email"
@@ -24,11 +27,13 @@
     [(ngModel)]="user.email"
     #email="ngModel" />
 
+  <!-- Email Validation -->
   <div *ngIf="email.invalid && email.touched">
-    <small *ngIf="email.errors?.['required']">Email is required.</small> <!-- Index Access -->
-    <small *ngIf="email.errors?.['email']">Invalid email format.</small> <!-- Index Access -->
+    <small *ngIf="email.errors?.['required']">Email is required.</small>
+    <small *ngIf="email.errors?.['email']">Invalid email format.</small>
   </div>
 
+  <!-- Age Field -->
   <label for="age">Age:</label>
   <input
     type="number"
@@ -39,13 +44,15 @@
     [(ngModel)]="user.age"
     #age="ngModel" />
 
+  <!-- Age Validation -->
   <div *ngIf="age.invalid && age.touched">
-    <small *ngIf="age.errors?.['min']">Age must be at least 18.</small> <!-- Index Access -->
-    <small *ngIf="age.errors?.['max']">Age must be less than 100.</small> <!-- Index Access -->
+    <small *ngIf="age.errors?.['min']">Age must be at least 18.</small>
+    <small *ngIf="age.errors?.['max']">Age must be less than 100.</small>
   </div>
 
+  <!-- Submit and Reset Buttons -->
   <button type="submit" [disabled]="myForm.invalid">Submit</button>
   <button type="button" (click)="resetForm()">Reset</button>
 </form>
 
-<p>Form status: {{ form.status }}</p> <!-- Ersetze form?.status mit form.status -->
+<p>Form status: {{ myForm?.status }}</p>

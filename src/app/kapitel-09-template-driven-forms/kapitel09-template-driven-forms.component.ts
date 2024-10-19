@@ -1,13 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgForm, FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-kapitel-09-template-driven-forms',
   standalone: true,
-  imports: [FormsModule, NgIf],
   templateUrl: './kapitel09-template-driven-forms.component.html',
-  styleUrl: './kapitel09-template-driven-forms.component.css',
+  styleUrls: ['./kapitel09-template-driven-forms.component.css'],
+  imports: [FormsModule, NgIf],
 })
 export class Kapitel09TemplateDrivenFormsComponent {
   @ViewChild('myForm') form!: NgForm; // (8) Zugriff auf die Elementreferenz des Formulars
@@ -24,6 +24,10 @@ export class Kapitel09TemplateDrivenFormsComponent {
 
   // Formular zurücksetzen
   resetForm() {
-    this.form.reset();
+    if (this.form) {
+      this.form.reset(); // Sicherstellen, dass form nicht undefined ist
+    } else {
+      console.warn('Form is not available');
+    }
   }
 }
