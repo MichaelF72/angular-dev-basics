@@ -5,8 +5,8 @@
 
 <!-- Beispiel für die Strukturdirektive ShowIfOdd -->
 <ul>
-  <li *ngFor="let item of items" [appShowIfOdd]="item"> <!-- Typensicherheit für das Property appShowIfOdd -->
-    Element {{ item }} (wird nur angezeigt, wenn die Zahl ungerade ist)
+  <li *ngFor="let item of items">
+    <ng-container *appShowIfOdd="item">{{ item }}</ng-container>
   </li>
 </ul>
 

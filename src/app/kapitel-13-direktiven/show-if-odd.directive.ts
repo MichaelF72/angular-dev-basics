@@ -1,21 +1,24 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  standalone: true,
   selector: '[appShowIfOdd]',
+  standalone: true
 })
 export class ShowIfOddDirective {
-  // (5) Die Strukturdirektive verwendet TemplateRef und ViewContainerRef zur Einbettung von Elementen
+  private hasView = false;
+
   @Input() set appShowIfOdd(value: number) {
-    if (value % 2 !== 0) {
+    if (value % 2 !== 0 && !this.hasView) {
       this.viewContainer.createEmbeddedView(this.templateRef);
-    } else {
+      this.hasView = true;
+    } else if (value % 2 === 0 && this.hasView) {
       this.viewContainer.clear();
+      this.hasView = false;
     }
   }
 
   constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef,
+    private templateRef: TemplateRef<never>,
+    private viewContainer: ViewContainerRef
   ) {}
 }
