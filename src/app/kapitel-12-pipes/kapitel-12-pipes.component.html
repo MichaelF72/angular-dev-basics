@@ -1,1 +1,17 @@
-<p>pipes works!</p>
+<h2>Kapitel 12: Pipes Beispiel</h2>
+
+<!-- Beispiel für eingebaute Pipes -->
+<p>Original Name: {{ name }}</p>
+<p>Mit LowerCasePipe: {{ name | lowercase }}</p>
+<p>Mit UpperCasePipe: {{ name | uppercase }}</p>
+<p>Mit Verkettung von Pipes: {{ name | lowercase | uppercase }}</p>
+<p>Mit Parameter: {{ amount | number:'1.1-2' }}</p>
+<p>Heutiges Datum: {{ today | date:'fullDate' }}</p>
+<p>Preis in deutscher Lokalisierung: {{ amount | currency:'EUR':'symbol':'1.2-2':'de' }}</p>
+
+<!-- Anwendung der benutzerdefinierten Pipe -->
+<p>Umgekehrter Text (benutzerdefinierte Pipe): {{ name | reverseString }}</p> <!-- (7) Benutzerdefinierte Pipe ReverseStringPipe -->
+
+<!-- AsyncPipe Beispiel -->
+<p>AsyncPipe Beispiel:</p>
+<p>{{ asyncData$ | async }}</p>
