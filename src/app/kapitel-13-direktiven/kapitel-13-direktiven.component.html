@@ -1,1 +1,19 @@
-<p>direktiven works!</p>
+<h2>Kapitel 13: Direktiven Beispiel</h2>
+
+<!-- Beispiel für die Highlight-Attributdirektive -->
+<p appHighlight>Bewege die Maus hierhin, um den Hintergrund zu ändern.</p>
+
+<!-- Beispiel für die Strukturdirektive ShowIfOdd -->
+<ul>
+  <li *ngFor="let item of items" [appShowIfOdd]="item"> <!-- Typensicherheit für das Property appShowIfOdd -->
+    Element {{ item }} (wird nur angezeigt, wenn die Zahl ungerade ist)
+  </li>
+</ul>
+
+<!-- Eingebaute Angular-Direktiven (6) -->
+<div *ngIf="items.length > 0">
+  <p>Anzahl der Elemente: {{ items.length }}</p>
+</div>
+<ul>
+  <li *ngFor="let item of items">Element {{ item }}</li>
+</ul>
