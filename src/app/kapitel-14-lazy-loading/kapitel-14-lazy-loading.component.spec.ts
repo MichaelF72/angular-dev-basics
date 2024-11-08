@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Kapitel14LazyLoadingComponent } from './kapitel-14-lazy-loading.component';
 
-describe('LazyLoadingComponent', () => {
+describe('GuardsComponent', () => {
   let component: Kapitel14LazyLoadingComponent;
   let fixture: ComponentFixture<Kapitel14LazyLoadingComponent>;
 
